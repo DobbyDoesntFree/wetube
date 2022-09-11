@@ -1,0 +1,55 @@
+[
+{
+meta: { views: 0, rating: 0 },
+\_id: new ObjectId("631dc812140d3ad5b57b4723"),
+title: 'ㅁ',
+fileUrl: 'uploads/videos/93f461f32381d1d4e232852eedba48c7',
+thumbUrl: 'uploads/videos/d75524a401e9c16c307fe4a013268755',
+description: 'ㄴ',
+hashtags: [ '#ㅇ' ],
+owner: {
+\_id: new ObjectId("631d63334248dda30f458f3e"),
+email: 'rkskekfkrk1@gmail.com',
+avatarUrl: 'uploads\\avatars\\8c0f14732028a9f7b9efe21e00b362e4',
+socialOnly: true,
+username: 'Visitor',
+password: '$2b$05$ksjgc98r9AA5iDhkBm4due.xaQ1.qUnIWN5mA7pePR3ME32YQFThe',
+videos: [Array],
+name: 'DobbyDoesntFree',
+location: 'f',
+**v: 9
+},
+createdAt: 2022-09-11T11:35:46.854Z,
+**v: 0
+},
+{
+meta: { views: 0, rating: 0 },
+\_id: new ObjectId("631dcb635a7db9959a95a912"),
+title: 'ㅁ',
+fileUrl: 'uploads/videos/0b0fa13952ab7de625df8e0f2708d0c8',
+thumbUrl: 'uploads/videos/9b04ad100298a4492af27565b1783283',
+description: 'ㄴ',
+hashtags: [ '#ㅇ' ],
+owner: {
+\_id: new ObjectId("631d63334248dda30f458f3e"),
+email: 'rkskekfkrk1@gmail.com',
+avatarUrl: 'uploads\\avatars\\8c0f14732028a9f7b9efe21e00b362e4',
+socialOnly: true,
+username: 'Visitor',
+password: '$2b$05$ksjgc98r9AA5iDhkBm4due.xaQ1.qUnIWN5mA7pePR3ME32YQFThe',
+videos: [Array],
+name: 'DobbyDoesntFree',
+location: 'f',
+**v: 9
+},
+createdAt: 2022-09-11T11:49:55.728Z,
+**v: 0
+}
+]
+
+        if messages.error
+            +message("error",messages.error)
+        if messages.info
+            +message("info",messages.info)
+        if messages.success
+            +message("success",messages.success)

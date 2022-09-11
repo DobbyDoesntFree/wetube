@@ -1,0 +1,38 @@
+0.  src/client/js/main.js*
+    
+    src/client/scss/config/\_variables.scss*
+    src/views/base.pug*
+    
+    webpack.config.js*
+
+1.  
+    src/client/scss/components/forms.scss*
+    
+
+2.
+
+3.  
+    
+
+4.  
+    
+
+5.  
+
+6.  
+    
+
+7.  
+    
+
+8.  
+    
+
+9.  
+
+10.
+
+11. src/client/js/videoPlayer.js * 
+    src/client/scss/components/video-player.scss * 
+    src/client/scss/styles.scss * 
+    src/views/watch.pug
