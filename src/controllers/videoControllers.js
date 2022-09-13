@@ -10,7 +10,6 @@ export const home = async (req, res) => {
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id).populate("owner").populate("comments");
-  console.log(video);
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
@@ -37,20 +36,24 @@ export const postEdit = async (req, res) => {
   } = req.session;
   const { id } = req.params;
   const { title, description, hashtags } = req.body;
-  const video = await Video.exists({ _id: id });
+
+  const video = await Video.findById(id);
+
+  if (String(video.owner) === String(_id)) {
+    await Video.findByIdAndUpdate(id, {
+      title,
+      description,
+      hashtags: Video.formatHashtags(hashtags),
+    });
+  }
+
   if (!video) {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
   if (String(video.owner) !== String(_id)) {
-    req.flash("error", "You are not the the owner of the video.");
     return res.status(403).redirect("/");
   }
-  await Video.findByIdAndUpdate(id, {
-    title,
-    description,
-    hashtags: Video.formatHashtags(hashtags),
-  });
-  req.flash("success", "Changes saved.");
+
   return res.redirect(`/videos/${id}`);
 };
 export const getUpload = (req, res) => {
@@ -62,12 +65,13 @@ export const postUpload = async (req, res) => {
   } = req.session;
   const { video, thumb } = req.files;
   const { title, description, hashtags } = req.body;
+  const isHeroku = process.env.NODE_ENV === "production";
   try {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: video[0].location,
-      thumbUrl: thumb[0].location,
+      fileUrl: isHeroku ? video[0].location : video[0].path,
+      thumbUrl: isHeroku ? thumb[0].location : thumb[0].path,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
